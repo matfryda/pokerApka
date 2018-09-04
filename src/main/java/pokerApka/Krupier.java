@@ -2,6 +2,7 @@ package pokerApka;
 
 import java.util.ArrayList;
 
+import java.util.List;
 import java.util.Random;
 
 public class Krupier {
@@ -74,6 +75,7 @@ public class Krupier {
     public void wyswietlTalie() {
         System.out.println(talia);
     }
+
     public void wszystkieKartyGraczaListaFlop(Player player){
         for (int i = 0; i < kartyWspolne.size(); i++) {
             for (int j = 0; j <playersDeck.size() ; j++) {
@@ -104,7 +106,4 @@ public class Krupier {
             }
         }
     }
-
-
-
 }

@@ -2,37 +2,37 @@ package pokerApka;
 
 public class Card {
 
-    String color, figure;
-    String indexColor, indexFigure;
+    private String color, figure;
+    private int indexColor, indexFigure;
 
-
-
-
-//    public Card(String color, String figure) {
-//        this.color = color;
-//        this.figure = figure;
-//    }
-
-    public Card(String color, String figure, String indexColor, String indexFigure) {
+    public Card(String color, String figure, int indexColor, int indexFigure) {
         this.color = color;
         this.figure = figure;
         this.indexColor = indexColor;
         this.indexFigure = indexFigure;
     }
 
-    public Card(String s, String s1, int i, int j) {
-        this.color = color;
-        this.figure = figure;
-        this.indexColor = indexColor;
-        this.indexFigure = indexFigure;
+    public String getColor() {
+        return color;
     }
 
+    public String getFigure() {
+        return figure;
+    }
+
+    public int getIndexColor() {
+        return indexColor;
+    }
+
+    public int getIndexFigure() {
+        return indexFigure;
+    }
 
     @Override
+
     public String toString() {
         return figure +
                 " of " +
-                color;
+                color + " " + indexColor + " " + indexFigure;
     }
 }
-
