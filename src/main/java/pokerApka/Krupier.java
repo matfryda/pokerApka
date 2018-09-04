@@ -9,8 +9,6 @@ public class Krupier {
 
     Random random = new Random();
 
-    public ArrayList<Card> playersDeck = new ArrayList<Card>(2);
-
     ArrayList<Card> talia = new ArrayList<Card>();
 
     ArrayList<Card> kartyWspolne = new ArrayList<Card>();
@@ -76,34 +74,19 @@ public class Krupier {
         System.out.println(talia);
     }
 
-    public void wszystkieKartyGraczaListaFlop(Player player){
-        for (int i = 0; i < kartyWspolne.size(); i++) {
-            for (int j = 0; j <playersDeck.size() ; j++) {
-                int zmienna = random.nextInt(talia.size());
-                Card card1 = talia.get(zmienna);
-                player.addCardToList(card1);
-                talia.remove(card1);
-            }
+    public List<Card> wszystkieKartyGraczaFlop(Player player) {
+
+        List<Card> flop = new ArrayList<Card>();
+
+        for (int i = 0; i < player.getPlayersDeck().size(); i++) {
+
+            flop.add(player.getPlayersDeck().get(i));
         }
+        for (int i = 0; i < kartyWspolne.size(); i++) {
+
+            flop.add(kartyWspolne.get(i));
+        }
+        return flop;
     }
 
-    public void wszystkieKartyGraczaListaTurn(Player player){
-        for (int i = 0; i < kartyWspolne.size(); i++) {
-            for (int j = 0; j <playersDeck.size() ; j++) {
-                int zmienna = random.nextInt(talia.size());
-                Card card1 = talia.get(zmienna);
-                player.addCardToList(card1);
-                talia.remove(card1);
-            }
-        }
-    }public void wszystkieKartyGraczaListaRiver(Player player){
-        for (int i = 0; i < kartyWspolne.size(); i++) {
-            for (int j = 0; j <playersDeck.size() ; j++) {
-                int zmienna = random.nextInt(talia.size());
-                Card card1 = talia.get(zmienna);
-                player.addCardToList(card1);
-                talia.remove(card1);
-            }
-        }
-    }
 }

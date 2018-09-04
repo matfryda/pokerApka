@@ -3,8 +3,14 @@ package pokerApka;
 import java.util.ArrayList;
 
 public class Player {
-    public Player() {
+    private ArrayList<Card> playersDeck = new ArrayList<Card>();
 
+    public String login;
+    public int id;
+
+    public Player(String login, int id) {
+        this.login = login;
+        this.id = id;
     }
 
     public ArrayList<Card> getPlayersDeck() {
@@ -17,16 +23,9 @@ public class Player {
 
     public void addCardToList(Card card) {
         playersDeck.add(card);
-//        System.out.println(card);
     }
 
-    private ArrayList<Card> playersDeck = new ArrayList<Card>(2);
 
-    public String login;
-    public int id;
 
-    public Player(String login, int id) {
-        this.login = login;
-        this.id = id;
-    }
+
 }

@@ -1,16 +1,26 @@
 package poker2;
 
+import pokerApka.Card;
 import pokerApka.Krupier;
 import pokerApka.Player;
+import pokerApka.Rank;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
+        Rank rank = new Rank();
         Krupier krupier = new Krupier();
         ArrayList<Player> players = new ArrayList<Player>();
 
+        List<Card> testowaTaliaPoker = new ArrayList<Card>();
+        testowaTaliaPoker.add(new Card("diamonds", "10", 2,9));
+        testowaTaliaPoker.add(new Card("diamonds", "Jack", 2,10));
+        testowaTaliaPoker.add(new Card("diamonds", "Queen", 2,11));
+        testowaTaliaPoker.add(new Card("diamonds", "King", 2,12));
+        testowaTaliaPoker.add(new Card("diamonds", "Ace", 2,13));
 
         Player player = new Player("JanuszKlątwa", 10);
         Player player1 = new Player("Radoslav", 11);
@@ -21,16 +31,6 @@ public class Main {
         players.add(player2);
 
         krupier.stworzTalie();
-//        krupier.wyswietlTalie();
-
-//        for (int i = 0; i < 52; i++) {
-//            System.out.println(i);
-//            krupier.losowanieJednejKartyDlaGracza(player);
-//        }
-
-
-//        krupier.losowanieJednejKartyDlaGracza(player);
-
 
         krupier.rozdawanieDwochKartDlaGraczy(players);
         System.out.println("Karty pierwszego gracza: " + player.getPlayersDeck());
@@ -46,5 +46,6 @@ public class Main {
         krupier.wyswietlTalie();
 
 
+        System.out.println(rank.RoyalFlush(testowaTaliaPoker));
     }
 }
