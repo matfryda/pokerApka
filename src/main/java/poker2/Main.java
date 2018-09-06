@@ -20,7 +20,7 @@ public class Main {
         testowaTaliaPoker.add(new Card("diamonds", "Jack", 2,10));
         testowaTaliaPoker.add(new Card("diamonds", "Queen", 2,11));
         testowaTaliaPoker.add(new Card("diamonds", "King", 2,12));
-        testowaTaliaPoker.add(new Card("diamonds", "Ace", 2,13));
+        testowaTaliaPoker.add(new Card("diamonds", "8", 2,7));
 
         Player player = new Player("JanuszKlątwa", 10);
         Player player1 = new Player("Radoslav", 11);
@@ -47,5 +47,6 @@ public class Main {
 
 
         System.out.println(rank.RoyalFlush(testowaTaliaPoker));
+        System.out.println(rank.StraightFlush(testowaTaliaPoker));
     }
 }
