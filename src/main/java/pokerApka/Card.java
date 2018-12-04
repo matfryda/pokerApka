@@ -33,6 +33,6 @@ public class Card {
     public String toString() {
         return figure +
                 " of " +
-                color + " " + indexColor + " " + indexFigure;
+                color;
     }
 }

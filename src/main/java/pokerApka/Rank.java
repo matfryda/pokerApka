@@ -1,14 +1,10 @@
 package pokerApka;
 
-import java.awt.*;
 import java.util.List;
 
 public class Rank {
 
-
-    public void rank() {
-    }
-
+    //sprawdzanie czy jest poker królewski
     public boolean RoyalFlush(List<Card> talia) {
         boolean isRoyal = true;
         int ColorIndex = talia.get(0).getIndexColor();
@@ -25,56 +21,70 @@ public class Rank {
         return isRoyal;
     }
 
-    public Boolean IsStraightFlush(List<Card> talia) {
+
+    public Boolean IsStraight(List<Card> talia) {
+        Card min = talia.get(0);
         for (Card card : talia) {
-            if (card.getIndexFigure() > 8 && card.getIndexFigure() < 12 ||
-                    card.getIndexFigure() >= 7 && card.getIndexFigure() <= 11 ||
-                    card.getIndexFigure() >= 6 && card.getIndexFigure() <= 10 ||
-                    card.getIndexFigure() >= 5 && card.getIndexFigure() <= 9 ||
-                    card.getIndexFigure() >= 4 && card.getIndexFigure() <= 8 ||
-                    card.getIndexFigure() >= 3 && card.getIndexFigure() <= 7 ||
-                    card.getIndexFigure() >= 2 && card.getIndexFigure() <= 6 ||
-                    card.getIndexFigure() >= 1 && card.getIndexFigure() <= 5 ||
-                    card.getIndexFigure() >= 0 && card.getIndexFigure() <= 4 ||
-                    card.getIndexFigure() == 0 && card.getIndexFigure() == 1 &&
-                            card.getIndexFigure() == 2 && card.getIndexFigure() == 3 &&
-                            card.getIndexFigure() == 12) ;
+            if (card.getIndexFigure() < min.getIndexFigure()) {
+                min = card;
+            }
+        }
+        int counter = 0;
+        for (Card card : talia) {
+            if (card.getIndexFigure() - min.getIndexFigure() == 1) {
+                counter++;
+                if (counter > 4) {
+                    return true;
+                }
+
+            }
 
         }
-        return true;
+        return false;
     }
 
 
-    public boolean StraightFlush(List<Card> talia) {
-        boolean isStraightFlush = true;
-        int ColorIndex = talia.get(0).getIndexColor();
-        for (Card card : talia) {
-            if (card.getIndexColor() != ColorIndex) {
-                isStraightFlush = false;
-                break;
+    //sprawdzanie czy jest para
+    public Boolean Pair(List<Card> talia) {
+        for (int i = 0; i < talia.size() - 1; i++) {
+            for (int j = i + 1; j < talia.size(); j++) {
+                if (talia.get(i).getIndexFigure() == talia.get(j).getIndexFigure()) {
+                    return true;
+                }
             }
-            if (isStraightFlush == true) {
-                break;
-            }
-            return isStraightFlush;
         }
-
-//        public boolean Flush (List < Card > talia) {
-//            boolean isFlush = true;
-//            int colorIndex = talia.get(0).getIndexColor();
-//            for (Card card : talia) {
-//                if (card.getIndexColor() != colorIndex) {
-//                    return false;
-//                }
-//                if (isStraightFlush = false) ;
-//                break;
-//            }
-//            return true;
-//        }
-//
-//    }
-
-
-        return isStraightFlush;
+        return false;
     }
+
+    public Boolean ThreeOfAKind(List<Card> talia) {
+        for (int i = 0; i < talia.size() - 2; i++) {
+            for (int j = i + 1; j < talia.size() - 1; j++) {
+                for (int k = i + 2; k < talia.size(); k++) {
+                    if (talia.get(i).getIndexFigure() == talia.get(j).getIndexFigure() &&
+                            talia.get(k).getIndexFigure() == talia.get(j).getIndexFigure()) {
+                        return true;
+                    }
+                }
+            }
+
+        }
+        return false;
+    }
+
+    public Boolean Quad(List<Card> talia) {
+        for (int i = 0; i < talia.size() - 3; i++) {
+            for (int j = i + 1; j < talia.size() - 2; j++) {
+                for (int k = i + 2; k < talia.size() - 1; k++) {
+                    for (int l = i + 3; l < talia.size(); l++)
+                        if (talia.get(i).getIndexFigure() == talia.get(j).getIndexFigure() &&
+                                talia.get(k).getIndexFigure() == talia.get(j).getIndexFigure()
+                                && talia.get(l).getIndexFigure() == talia.get(k).getIndexFigure()) {
+                            return true;
+                        }
+                }
+            }
+        }
+        return false;
+    }
+
 }
