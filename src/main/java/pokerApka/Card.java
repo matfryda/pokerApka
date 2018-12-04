@@ -12,7 +12,7 @@ public class Card {
         this.indexFigure = indexFigure;
     }
 
-    public String getColor() {
+    public String getColor(String clubs) {
         return color;
     }
 
